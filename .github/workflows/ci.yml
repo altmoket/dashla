@@ -18,21 +18,16 @@ jobs:
               uses: actions/setup-node@v4
               with:
                   node-version: 22
-                  cache: "pnpm"
-
-            - name: Setup pnpm (using Corepack)
-              run: |
-                  corepack enable
-                  corepack prepare pnpm@10 --activate
+                  cache: npm
 
             - name: Install dependencies
-              run: pnpm install
+              run: npm install
 
-            - name: Lint
-              run: pnpm lint --if-present
+            - name: Run linter
+              run: npm run lint --if-present
 
-            - name: Test
-              run: pnpm test --if-present
+            - name: Run tests
+              run: npm test --if-present
 
-            - name: Build
-              run: pnpm build
+            - name: Build project
+              run: npm run build
