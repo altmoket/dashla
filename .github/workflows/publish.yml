@@ -22,9 +22,6 @@ jobs:
                   registry-url: "https://registry.npmjs.org/"
                   cache: "pnpm"
 
-            - run: pnpm config set git-checks false
-            - run: pnpm publish --access public
-
             - name: Install deps
               run: pnpm install --frozen-lockfile
 
